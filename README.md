@@ -18,7 +18,7 @@
   yes
 
 - What is the link to your GitHub repository?  
-  todo
+  https://github.com/JoshuaHaynesCoding/word-guess-oop
 
 - If you are in a group, does everyone have access to the github repo?  
   n/a
