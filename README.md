@@ -63,3 +63,38 @@ no outside libraries are planned atm i think i am only going to use the standard
 ### Sprint 2 Goal
 
 reate starter code for a working console version of the game. the program should be able to run, choose a word, accept guesses, and show a little feedback. at this moment i just want to lay the bones down
+-----------------------------------------------------
+## Sprint 3 Progress
+
+for sprint 3 i refactored the Word Ops project to include two design patterns from class: the Strategy Pattern and the Factory Pattern.
+
+### Strategy Pattern
+
+ Strategy Pattern is used for guess evaluation. instead of hardcoding one type of feedback directly inside the game loop, the project  has a `GuessEvaluationStrategy` interface. Different feedback styles can implement this interface!
+
+Current strategy classes:
+
+- `MilitaryEvaluationStrategy`
+- `ClassicEvaluationStrategy`
+
+The `GuessEvaluator` class uses a `GuessEvaluationStrategy` object to evaluate guesses. This makes the feedback system easier to change or extend without rewriting the main game logic.
+
+### Factory Pattern
+
+The Factory Pattern is used for creating game modes. The `GameModeFactory` class creates a `GameConfig` object based on the player's selected mode.
+
+Current game modes:
+
+- Training : 6 guesses with military-style feedback
+- Hard : 4 guesses with military-style feedback
+- Classic: 6 guesses with classic Wordle-style feedback this mode is the most familiar
+
+This keeps mode creation logic out of `Main.java` and makes it easier to add new modes later.
+
+##  Submission Plan
+
+ The user will be able to select a game mode, guess a hidden 4-letter word, and receive feedback based on the selected mode. I also want to explain how the Strategy Pattern makes feedback styles interchangeable and how the Factory Pattern organizes game mode creation maybe
+
+##  Problems / Risks
+
+ I had to refactor the original simple version of the project so the patterns are actually used by the game. Another possible issue is that the project is still a small console program, so I need to make sure the UML diagram and README clearly explain why these patterns improve the structure. the last time i did a uml diagram was either like on a test or for giant projects like for the capstone class or managning global systems, so i wonder if making one for a tiny project like this one right now will be hard.

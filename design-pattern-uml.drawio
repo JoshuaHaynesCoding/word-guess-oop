@@ -1,0 +1,70 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Design Pattern UML" id="0">
+    <mxGraphModel dx="1358" dy="982" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="strategy" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;br&gt;GuessEvaluationStrategy&lt;br&gt;-------------------------&lt;br&gt;+ evaluate(guess: String, secretWord: String): String&lt;br&gt;+ getInstructions(): String" vertex="1">
+          <mxGeometry height="130" width="360" x="420" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="military" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="MilitaryEvaluationStrategy&#xa;-------------------------&#xa;+ evaluate(guess: String, secretWord: String): String&#xa;+ getInstructions(): String" vertex="1">
+          <mxGeometry height="110" width="360" x="30" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="classic" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="ClassicEvaluationStrategy&#xa;-------------------------&#xa;+ evaluate(guess: String, secretWord: String): String&#xa;+ getInstructions(): String" vertex="1">
+          <mxGeometry height="110" width="360" x="790" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="evaluator" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="GuessEvaluator&#xa;-------------------------&#xa;- evaluationStrategy: GuessEvaluationStrategy&#xa;-------------------------&#xa;+ GuessEvaluator(evaluationStrategy: GuessEvaluationStrategy)&#xa;+ evaluateGuess(guess: String, secretWord: String): String" vertex="1">
+          <mxGeometry height="150" width="430" x="40" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="config" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="GameConfig&#xa;-------------------------&#xa;- modeName: String&#xa;- maxGuesses: int&#xa;- evaluationStrategy: GuessEvaluationStrategy&#xa;-------------------------&#xa;+ GameConfig(modeName: String, maxGuesses: int, evaluationStrategy: GuessEvaluationStrategy)&#xa;+ getModeName(): String&#xa;+ getMaxGuesses(): int&#xa;+ getEvaluationStrategy(): GuessEvaluationStrategy" vertex="1">
+          <mxGeometry height="210" width="520" x="520" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="factory" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="GameModeFactory&#xa;-------------------------&#xa;+ createGameConfig(modeChoice: String): GameConfig&#xa;- createTrainingMode(): GameConfig&#xa;- createHardMode(): GameConfig&#xa;- createClassicMode(): GameConfig" vertex="1">
+          <mxGeometry height="140" width="300" x="1080" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="wordprovider" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="WordProvider&#xa;-------------------------&#xa;- words: List&lt;String&gt;&#xa;- random: Random&#xa;-------------------------&#xa;+ WordProvider()&#xa;+ getRandomWord(): String&#xa;+ isValidGuess(guess: String): boolean" vertex="1">
+          <mxGeometry height="150" width="340" x="40" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="game" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Game&#xa;-------------------------&#xa;- wordProvider: WordProvider&#xa;- guessEvaluator: GuessEvaluator&#xa;- gameConfig: GameConfig&#xa;- scanner: Scanner&#xa;-------------------------&#xa;+ Game(wordProvider: WordProvider, guessEvaluator: GuessEvaluator, gameConfig: GameConfig, scanner: Scanner)&#xa;+ play(): void&#xa;- printIntro(): void" vertex="1">
+          <mxGeometry height="210" width="520" x="470" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="main" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Main&#xa;-------------------------&#xa;+ main(args: String[]): void" vertex="1">
+          <mxGeometry height="80" width="240" x="1120" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="impl1" edge="1" parent="1" source="military" style="endArrow=block;endFill=0;dashed=1;html=1;" target="strategy">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="impl2" edge="1" parent="1" source="classic" style="endArrow=block;endFill=0;dashed=1;html=1;" target="strategy">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="evalUsesStrategy" edge="1" parent="1" style="endArrow=open;html=1;" value="uses">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="298.84615384615404" y="450" as="sourcePoint" />
+            <mxPoint x="520" y="200.00000000000023" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="configUsesStrategy" edge="1" parent="1" source="config" style="endArrow=open;html=1;" target="strategy" value="has">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="factoryCreatesConfig" edge="1" parent="1" source="factory" style="endArrow=open;html=1;" target="config" value="creates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gameUsesProvider" edge="1" parent="1" source="game" style="endArrow=open;html=1;" target="wordprovider" value="has">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gameUsesEvaluator" edge="1" parent="1" source="game" style="endArrow=open;html=1;" target="evaluator" value="has">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gameUsesConfig" edge="1" parent="1" source="game" style="endArrow=open;html=1;" target="config" value="has">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mainCreatesGame" edge="1" parent="1" source="main" style="endArrow=open;html=1;" target="game" value="creates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mainCreatesFactory" edge="1" parent="1" source="main" style="endArrow=open;html=1;" target="factory" value="creates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
