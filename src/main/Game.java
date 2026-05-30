@@ -5,44 +5,49 @@ public class Game {
     private final GuessEvaluator guessEvaluator;
     private final GameConfig gameConfig;
     private final Scanner scanner;
+    private final CommandParser commandParser;
 
     public Game(WordProvider wordProvider, GuessEvaluator guessEvaluator, GameConfig gameConfig, Scanner scanner) {
         this.wordProvider = wordProvider;
         this.guessEvaluator = guessEvaluator;
         this.gameConfig = gameConfig;
         this.scanner = scanner;
+        this.commandParser = new CommandParser();
     }
 
     public void play() {
         String secretWord = wordProvider.getRandomWord();
         int guessesUsed = 0;
         boolean hasWon = false;
+        boolean hasQuit = false;
+
+        GameContext context = new GameContext(wordProvider, guessEvaluator, gameConfig, secretWord);
 
         printIntro();
 
-        while (guessesUsed < gameConfig.getMaxGuesses() && !hasWon) {
-            System.out.print("Enter guess #" + (guessesUsed + 1) + ": ");
-            String guess = scanner.nextLine().trim().toLowerCase();
+        while (guessesUsed < gameConfig.getMaxGuesses() && !hasWon && !hasQuit) {
+            System.out.print("Enter guess #" + (guessesUsed + 1) + " or command: ");
+            String input = scanner.nextLine();
 
-            if (!wordProvider.isValidGuess(guess)) {
-                System.out.println("Negative. The phrase is exactly 4 letters.");
-                continue;
+            GameCommand command = commandParser.parse(input);
+            CommandResult result = command.execute(context);
+
+            System.out.println(result.getMessage());
+
+            if (result.countsAsGuess()) {
+                guessesUsed++;
             }
 
-            guessesUsed++;
-
-            String feedback = guessEvaluator.evaluateGuess(guess, secretWord);
-            System.out.println(feedback);
-
-            if (guess.equals(secretWord)) {
+            if (result.isGameWon()) {
                 hasWon = true;
-                System.out.println("Affirmative. Mission complete.");
-            } else {
-                System.out.println("Negative. Try again.");
+            }
+
+            if (result.isGameQuit()) {
+                hasQuit = true;
             }
         }
 
-        if (!hasWon) {
+        if (!hasWon && !hasQuit) {
             System.out.println("Mission failed, we'll get 'em next time. The phrase was: " + secretWord);
         }
     }
@@ -52,5 +57,6 @@ public class Game {
         System.out.println("Mode: " + gameConfig.getModeName());
         System.out.println("Identify the 4-letter challenge phrase. You have " + gameConfig.getMaxGuesses() + " tries.");
         System.out.println(gameConfig.getEvaluationStrategy().getInstructions());
+        System.out.println("Type help for commands or quit to exit.");
     }
 }
