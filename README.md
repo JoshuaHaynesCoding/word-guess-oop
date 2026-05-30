@@ -98,3 +98,58 @@ This keeps mode creation logic out of `Main.java` and makes it easier to add new
 ##  Problems / Risks
 
  I had to refactor the original simple version of the project so the patterns are actually used by the game. Another possible issue is that the project is still a small console program, so I need to make sure the UML diagram and README clearly explain why these patterns improve the structure. the last time i did a uml diagram was either like on a test or for giant projects like for the capstone class or managning global systems, so i wonder if making one for a tiny project like this one right now will be hard.
+----------------------------------------------------------------------------
+ ## sprint 4 progress
+
+for sprint 4, i fixed the factory issue from the previous sprint and added two more design patterns that are actually used 
+
+### fixed pattern: factory method pattern
+
+in the last sprint, my original `GameModeFactory` was closer to a simple factory, not a true factory method or abstract factory. for this sprint, i refactored that design into a factory method pattern
+
+the project now uses an abstract creator class called `GameModeCreator` and concrete creator classes called `TrainingModeCreator`, `HardModeCreator`, and `ClassicModeCreator`
+
+each creator class overrides `createGameConfig()` to create its own version of a `GameConfig`. the `GameModeSelector` chooses which creator should be used based on the player's menu choice, and then `Main` calls the factory method to create the selected game mode.
+
+this makes game mode creation easier to extend because i can add a new mode by creating a new creator class instead of putting all object creation logic into one large factory class.
+
+### new pattern: command pattern
+
+the command pattern is used for player actions. instead of the game loop directly handling every possible input, player input is parsed into command objects.
+
+the command related classes are `GameCommand`, `GuessCommand`, `HelpCommand`, `QuitCommand`, `CommandParser`, `CommandResult`, and `GameContext`.
+
+for example, when the player types a guess, the game creates a `GuessCommand`. when the player types `help`, the game creates a `HelpCommand`. when the player types `quit`, the game creates a `QuitCommand`.
+
+this makes the input system more modular because new commands can be added without rewriting the main game loop.
+
+### new pattern: observer pattern
+
+the observer pattern is used for game events. the game now has an event manager that can notify listener classes when important events happen.
+
+the observer related classes are `GameEventListener`, `GameEventManager`, `ScoreTracker`, and `ConsoleGameLogger`.
+
+the `ScoreTracker` listens for game events such as valid guesses, invalid guesses, wins, and losses. at the end of the game, it prints a mission summary. this keeps score tracking separate from the main game logic.
+
+### current design patterns used
+
+at this point, the project uses four custom design patterns:
+
+1. strategy pattern
+2. factory method pattern
+3. command pattern
+4. observer pattern
+
+## updated final submission plan
+
+for the final submission, i want to make word ops feel more like a real playable game instead of only a terminal program. i plan to add a pretty java gui with a themed background, buttons, a guess input box, a feedback history area, and a more polished military or intelligence style. think like the matrix green numbers, camoflauge, computers, stuff like that
+
+i had to make a gui for my capstone class, we made a full tetris clone, so i want to apply some of that experience here too. the goal is to keep the current game logic working underneath, but put a better looking interface on top of it for the final demo.
+
+i may also add an optional ai powered word source in the future. the offline version would use the built in word list, while an online version could generate themed words related to military, intelligence, cybersecurity, or software. i would keep the offline version working so the project can still be demonstrated without internet access.
+
+## sprint 4 problems / risks
+
+one issue this sprint was that my previous factory implementation did not count as a true factory method or abstract factory, so i had to refactor it. i also had to make sure the command and observer patterns were actually used by the playable game instead of just existing as extra unused classes.
+
+another risk is that the project is still terminal based, so the final version needs more visual polish. i want to add a gui, but i need to make sure the design patterns stay clear and easy to explain instead of getting buried under the interface work.
