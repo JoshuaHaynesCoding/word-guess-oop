@@ -13,8 +13,8 @@ public class Main {
 
         String modeChoice = scanner.nextLine().trim();
 
-        GameModeFactory gameModeFactory = new GameModeFactory();
-        GameConfig gameConfig = gameModeFactory.createGameConfig(modeChoice);
+        GameModeCreator gameModeCreator = GameModeSelector.selectCreator(modeChoice);
+        GameConfig gameConfig = gameModeCreator.createGameConfig();
 
         WordProvider wordProvider = new WordProvider();
         GuessEvaluator guessEvaluator = new GuessEvaluator(gameConfig.getEvaluationStrategy());
