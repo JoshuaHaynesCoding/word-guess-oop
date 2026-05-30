@@ -6,6 +6,8 @@ public class Game {
     private final GameConfig gameConfig;
     private final Scanner scanner;
     private final CommandParser commandParser;
+    private final GameEventManager eventManager;
+    private final ScoreTracker scoreTracker;
 
     public Game(WordProvider wordProvider, GuessEvaluator guessEvaluator, GameConfig gameConfig, Scanner scanner) {
         this.wordProvider = wordProvider;
@@ -13,6 +15,11 @@ public class Game {
         this.gameConfig = gameConfig;
         this.scanner = scanner;
         this.commandParser = new CommandParser();
+
+        this.eventManager = new GameEventManager();
+        this.scoreTracker = new ScoreTracker();
+
+        this.eventManager.addListener(scoreTracker);
     }
 
     public void play() {
@@ -24,6 +31,7 @@ public class Game {
         GameContext context = new GameContext(wordProvider, guessEvaluator, gameConfig, secretWord);
 
         printIntro();
+        eventManager.notifyListeners("GAME_STARTED", "Started " + gameConfig.getModeName());
 
         while (guessesUsed < gameConfig.getMaxGuesses() && !hasWon && !hasQuit) {
             System.out.print("Enter guess #" + (guessesUsed + 1) + " or command: ");
@@ -36,20 +44,28 @@ public class Game {
 
             if (result.countsAsGuess()) {
                 guessesUsed++;
+                eventManager.notifyListeners("GUESS_SUBMITTED", "Player submitted a valid guess.");
+            } else if (!result.isGameQuit() && !input.trim().equalsIgnoreCase("help")) {
+                eventManager.notifyListeners("INVALID_GUESS", "Player submitted an invalid guess.");
             }
 
             if (result.isGameWon()) {
                 hasWon = true;
+                eventManager.notifyListeners("GAME_WON", "Player guessed the secret word.");
             }
 
             if (result.isGameQuit()) {
                 hasQuit = true;
+                eventManager.notifyListeners("GAME_QUIT", "Player quit the mission.");
             }
         }
 
         if (!hasWon && !hasQuit) {
             System.out.println("Mission failed, we'll get 'em next time. The phrase was: " + secretWord);
+            eventManager.notifyListeners("GAME_LOST", "Player ran out of guesses.");
         }
+
+        System.out.println(scoreTracker.getSummary());
     }
 
     private void printIntro() {
