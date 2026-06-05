@@ -20,6 +20,8 @@ public class WordProvider {
     }
 
     public boolean isValidGuess(String guess) {
-        return guess != null && guess.length() == 4 && guess.matches("[a-zA-Z]+");
+        return guess != null
+    && guess.length() == GameSettings.getInstance().getWordLength()
+    && guess.matches("[a-zA-Z]+");
     }
 }

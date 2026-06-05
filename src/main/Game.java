@@ -71,7 +71,8 @@ public class Game {
     private void printIntro() {
         System.out.println("Word Ops");
         System.out.println("Mode: " + gameConfig.getModeName());
-        System.out.println("Identify the 4-letter challenge phrase. You have " + gameConfig.getMaxGuesses() + " tries.");
+        System.out.println("Theme: " + GameSettings.getInstance().getThemeName());
+        System.out.println("Identify the " + GameSettings.getInstance().getWordLength() + "-letter challenge phrase. You have " + gameConfig.getMaxGuesses() + " tries.");
         System.out.println(gameConfig.getEvaluationStrategy().getInstructions());
         System.out.println("Type help for commands or quit to exit.");
     }
