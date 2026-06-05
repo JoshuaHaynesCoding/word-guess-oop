@@ -8,12 +8,14 @@ public class Game {
     private final CommandParser commandParser;
     private final GameEventManager eventManager;
     private final ScoreTracker scoreTracker;
+    private final GameDisplay display;
 
-    public Game(WordProvider wordProvider, GuessEvaluator guessEvaluator, GameConfig gameConfig, Scanner scanner) {
+    public Game(WordProvider wordProvider, GuessEvaluator guessEvaluator, GameConfig gameConfig, Scanner scanner, GameDisplay display) {
         this.wordProvider = wordProvider;
         this.guessEvaluator = guessEvaluator;
         this.gameConfig = gameConfig;
         this.scanner = scanner;
+        this.display = display;
         this.commandParser = new CommandParser();
 
         this.eventManager = new GameEventManager();
@@ -34,13 +36,13 @@ public class Game {
         eventManager.notifyListeners("GAME_STARTED", "Started " + gameConfig.getModeName());
 
         while (guessesUsed < gameConfig.getMaxGuesses() && !hasWon && !hasQuit) {
-            System.out.print("Enter guess #" + (guessesUsed + 1) + " or command: ");
+            display.showPrompt("Enter guess #" + (guessesUsed + 1) + " or command: ");
             String input = scanner.nextLine();
 
             GameCommand command = commandParser.parse(input);
             CommandResult result = command.execute(context);
 
-            System.out.println(result.getMessage());
+            display.showMessage(result.getMessage());
 
             if (result.countsAsGuess()) {
                 guessesUsed++;
@@ -61,19 +63,19 @@ public class Game {
         }
 
         if (!hasWon && !hasQuit) {
-            System.out.println("Mission failed, we'll get 'em next time. The phrase was: " + secretWord);
+            display.showMessage("Mission failed, we'll get 'em next time. The phrase was: " + secretWord);
             eventManager.notifyListeners("GAME_LOST", "Player ran out of guesses.");
         }
 
-        System.out.println(scoreTracker.getSummary());
+        display.showMessage(scoreTracker.getSummary());
     }
 
     private void printIntro() {
-        System.out.println("Word Ops");
-        System.out.println("Mode: " + gameConfig.getModeName());
-        System.out.println("Theme: " + GameSettings.getInstance().getThemeName());
-        System.out.println("Identify the " + GameSettings.getInstance().getWordLength() + "-letter challenge phrase. You have " + gameConfig.getMaxGuesses() + " tries.");
-        System.out.println(gameConfig.getEvaluationStrategy().getInstructions());
-        System.out.println("Type help for commands or quit to exit.");
+        display.showMessage("Word Ops");
+        display.showMessage("Mode: " + gameConfig.getModeName());
+        display.showMessage("Theme: " + GameSettings.getInstance().getThemeName());
+        display.showMessage("Identify the " + GameSettings.getInstance().getWordLength() + "-letter challenge phrase. You have " + gameConfig.getMaxGuesses() + " tries.");
+        display.showMessage(gameConfig.getEvaluationStrategy().getInstructions());
+        display.showMessage("Type help for commands or quit to exit.");
     }
 }

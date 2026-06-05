@@ -19,7 +19,10 @@ public class Main {
         WordProvider wordProvider = new WordProvider();
         GuessEvaluator guessEvaluator = new GuessEvaluator(gameConfig.getEvaluationStrategy());
 
-        Game game = new Game(wordProvider, guessEvaluator, gameConfig, scanner);
+        TerminalOutput terminalOutput = new TerminalOutput();
+        GameDisplay gameDisplay = new ConsoleDisplayAdapter(terminalOutput);
+
+        Game game = new Game(wordProvider, guessEvaluator, gameConfig, scanner, gameDisplay);
         game.play();
 
         scanner.close();
