@@ -153,3 +153,54 @@ i may also add an optional ai powered word source in the future. the offline ver
 one issue this sprint was that my previous factory implementation did not count as a true factory method or abstract factory, so i had to refactor it. i also had to make sure the command and observer patterns were actually used by the playable game instead of just existing as extra unused classes.
 
 another risk is that the project is still terminal based, so the final version needs more visual polish. i want to add a gui, but i need to make sure the design patterns stay clear and easy to explain instead of getting buried under the interface work.
+----------------------------------------------------------------
+## final sprint 
+
+for this sprint, i implemented the remaining two design patterns needed to bring the total to 6. the two new patterns added this sprint are the singleton pattern and the adapter pattern
+
+### new pattern: singleton pattern
+
+the singleton pattern is used in `GameSettings`.
+
+`GameSettings` stores shared settings for the game, such as the word length, theme name, and debug mode. the constructor is private, so other classes cannot create new settings objects directly. the only way to access the settings is through `GameSettings.getInstance()`
+
+this gives the project one shared place for game settings instead of hardcoding values like the word length in multiple classes. `Game` uses it to print the theme and word length, and `WordProvider` uses it when checking if a guess is valid.
+
+### new pattern: adapter pattern
+
+the adapter pattern is used for game display output.
+
+the project now has a `GameDisplay` interface that the game can use for showing messages and prompts. `TerminalOutput` represents the existing terminal output behavior, and `ConsoleDisplayAdapter` adapts that terminal output to match the `GameDisplay` interface
+
+this makes the project easier to extend later because a future gui display can use the same game logic without rewriting the game itself. instead of the game being directly tied to `System.out.println`, the game now talks to a display interface
+
+### current design patterns used
+
+the project uses six custom design patterns:
+
+1. strategy pattern
+2. factory method pattern
+3. command pattern
+4. observer pattern
+5. singleton pattern
+6. adapter pattern
+
+### how the patterns are used together
+
+the strategy pattern is used to switch between different guess feedback styles. the factory method pattern is used to create different game modes. the command pattern is used to handle player actions like guessing, help, and quitting. the observer pattern is used to track game events and update the score tracker. the singleton pattern is used for shared game settings. the adapter pattern is used to separate game output from the terminal display.
+
+## updated final submission plan
+
+for the final submission, i want to show word ops as a complete playable word guessing game. the current version works in the terminal, but i also want to build a pretty java gui on top of it. i had to make a gui for my capstone class like a I mentioned before, so i want to apply some of that experience here too.
+
+the gui version could include a themed background, buttons, a guess input box, a feedback history area, sound effects, and a more polished military intelligence style. the current design should make that easier because the game logic is separated from parts of the display, command handling, game mode creation, and settings.
+
+i may also add an optional ai powered word source later, but the main goal is to keep the offline version working reliably for the final demo. the offline version will continue using the built in word list so the project can be demonstrated without internet access.
+
+## final sprint problems / risks
+
+one risk is making sure the singleton and adapter patterns are actually used by the program instead of only existing as extra classes. to avoid that, `GameSettings` is used by `Game` and `WordProvider`, and the display adapter is used by `Game` and `Main`.
+
+another risk is that adding a gui could take more time than expected. because of that, i want to keep the terminal version working as a backup while building the gui separately. i am aimint to be done with this totally by 06/06 in case I run into any hiccups.
+
+another issue is that i am still not great at using the uml website. the current uml diagram includes the required classes and patterns, but it is not as clean visually as i want it to be. for the final commit, i plan to make a proper polished uml diagram that is easier to read, possibly color coordinated and maybe made with a different tool.

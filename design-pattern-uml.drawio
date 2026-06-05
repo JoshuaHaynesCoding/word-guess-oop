@@ -1,252 +1,221 @@
 <mxfile host="app.diagrams.net">
-  <diagram name="Sprint 4 UML">
-    <mxGraphModel dx="2200" dy="1400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1400" math="0" shadow="0">
+  <diagram name="word ops final sprint uml" id="0">
+    <mxGraphModel dx="4036" dy="3196" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1700" math="0" shadow="0">
       <root>
-        <mxCell id="0"/>
-        <mxCell id="1" parent="0"/>
-
-        <!-- STRATEGY PATTERN -->
-        <mxCell id="strategyTitle" value="Strategy Pattern" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="120" y="30" width="220" height="30" as="geometry"/>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="strategyTitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=18;" value="Strategy Pattern" vertex="1">
+          <mxGeometry height="40" width="780" x="410" y="70" as="geometry" />
         </mxCell>
-
-        <mxCell id="guessEvaluationStrategy" value="&lt;&lt;interface&gt;&gt;&#xa;GuessEvaluationStrategy&#xa;-------------------------&#xa;+ evaluate(guess: String, secretWord: String): String&#xa;+ getInstructions(): String" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="360" y="80" width="390" height="120" as="geometry"/>
+        <mxCell id="guessEvaluationStrategy" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0f2ff;" value="&lt;&lt;interface&gt;&gt;&#xa;GuessEvaluationStrategy&#xa;-------------------------&#xa;+ evaluate(guess: String, secretWord: String): String&#xa;+ getInstructions(): String" vertex="1">
+          <mxGeometry height="110" width="430" x="310" y="130" as="geometry" />
         </mxCell>
-
-        <mxCell id="militaryEvaluationStrategy" value="MilitaryEvaluationStrategy&#xa;-------------------------&#xa;+ evaluate(guess: String, secretWord: String): String&#xa;+ getInstructions(): String" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="80" y="250" width="360" height="105" as="geometry"/>
+        <mxCell id="militaryEvaluationStrategy" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0f2ff;" value="MilitaryEvaluationStrategy&#xa;-------------------------&#xa;+ evaluate(guess: String, secretWord: String): String&#xa;+ getInstructions(): String" vertex="1">
+          <mxGeometry height="105" width="350" x="15" y="300" as="geometry" />
         </mxCell>
-
-        <mxCell id="classicEvaluationStrategy" value="ClassicEvaluationStrategy&#xa;-------------------------&#xa;+ evaluate(guess: String, secretWord: String): String&#xa;+ getInstructions(): String" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="580" y="250" width="360" height="105" as="geometry"/>
+        <mxCell id="classicEvaluationStrategy" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0f2ff;" value="ClassicEvaluationStrategy&#xa;-------------------------&#xa;+ evaluate(guess: String, secretWord: String): String&#xa;+ getInstructions(): String" vertex="1">
+          <mxGeometry height="105" width="350" x="440" y="370" as="geometry" />
         </mxCell>
-
-        <mxCell id="guessEvaluator" value="GuessEvaluator&#xa;-------------------------&#xa;- evaluationStrategy: GuessEvaluationStrategy&#xa;-------------------------&#xa;+ GuessEvaluator(evaluationStrategy: GuessEvaluationStrategy)&#xa;+ evaluateGuess(guess: String, secretWord: String): String" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="260" y="420" width="460" height="150" as="geometry"/>
+        <mxCell id="guessEvaluator" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e0f2ff;" value="GuessEvaluator&#xa;-------------------------&#xa;- evaluationStrategy: GuessEvaluationStrategy&#xa;-------------------------&#xa;+ GuessEvaluator(evaluationStrategy: GuessEvaluationStrategy)&#xa;+ evaluateGuess(guess: String, secretWord: String): String" vertex="1">
+          <mxGeometry height="120" width="430" x="40" y="525" as="geometry" />
         </mxCell>
-
-        <!-- FACTORY METHOD PATTERN -->
-        <mxCell id="factoryTitle" value="Factory Method Pattern" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="1250" y="30" width="280" height="30" as="geometry"/>
+        <mxCell id="factoryTitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=18;" value="Factory Method Pattern" vertex="1">
+          <mxGeometry height="40" width="900" x="1330" y="-140" as="geometry" />
         </mxCell>
-
-        <mxCell id="gameModeCreator" value="GameModeCreator&#xa;-------------------------&#xa;+ createGameConfig(): GameConfig" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1180" y="80" width="330" height="90" as="geometry"/>
+        <mxCell id="gameModeCreator" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8f5e9;" value="GameModeCreator&#xa;-------------------------&#xa;+ createGameConfig(): GameConfig" vertex="1">
+          <mxGeometry height="90" width="350" x="880" y="-130" as="geometry" />
         </mxCell>
-
-        <mxCell id="trainingModeCreator" value="TrainingModeCreator&#xa;-------------------------&#xa;+ createGameConfig(): GameConfig" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="980" y="250" width="300" height="90" as="geometry"/>
+        <mxCell id="trainingModeCreator" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8f5e9;" value="TrainingModeCreator&#xa;-------------------------&#xa;+ createGameConfig(): GameConfig" vertex="1">
+          <mxGeometry height="85" width="300" x="830" y="120" as="geometry" />
         </mxCell>
-
-        <mxCell id="hardModeCreator" value="HardModeCreator&#xa;-------------------------&#xa;+ createGameConfig(): GameConfig" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1320" y="250" width="300" height="90" as="geometry"/>
+        <mxCell id="hardModeCreator" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8f5e9;" value="HardModeCreator&#xa;-------------------------&#xa;+ createGameConfig(): GameConfig" vertex="1">
+          <mxGeometry height="85" width="300" x="1290" y="240" as="geometry" />
         </mxCell>
-
-        <mxCell id="classicModeCreator" value="ClassicModeCreator&#xa;-------------------------&#xa;+ createGameConfig(): GameConfig" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1660" y="250" width="300" height="90" as="geometry"/>
+        <mxCell id="classicModeCreator" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8f5e9;" value="ClassicModeCreator&#xa;-------------------------&#xa;+ createGameConfig(): GameConfig" vertex="1">
+          <mxGeometry height="85" width="300" x="1450" y="107.5" as="geometry" />
         </mxCell>
-
-        <mxCell id="gameModeSelector" value="GameModeSelector&#xa;-------------------------&#xa;+ selectCreator(modeChoice: String): GameModeCreator" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1560" y="80" width="380" height="90" as="geometry"/>
+        <mxCell id="gameModeSelector" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8f5e9;" value="GameModeSelector&#xa;-------------------------&#xa;+ selectCreator(modeChoice: String): GameModeCreator" vertex="1">
+          <mxGeometry height="90" width="360" x="1750" y="-40" as="geometry" />
         </mxCell>
-
-        <mxCell id="gameConfig" value="GameConfig&#xa;-------------------------&#xa;- modeName: String&#xa;- maxGuesses: int&#xa;- evaluationStrategy: GuessEvaluationStrategy&#xa;-------------------------&#xa;+ GameConfig(modeName: String, maxGuesses: int, evaluationStrategy: GuessEvaluationStrategy)&#xa;+ getModeName(): String&#xa;+ getMaxGuesses(): int&#xa;+ getEvaluationStrategy(): GuessEvaluationStrategy" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1080" y="420" width="560" height="210" as="geometry"/>
+        <mxCell id="gameConfig" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e8f5e9;" value="GameConfig&#xa;-------------------------&#xa;- modeName: String&#xa;- maxGuesses: int&#xa;- evaluationStrategy: GuessEvaluationStrategy&#xa;-------------------------&#xa;+ GameConfig(modeName: String, maxGuesses: int, evaluationStrategy: GuessEvaluationStrategy)&#xa;+ getModeName(): String&#xa;+ getMaxGuesses(): int&#xa;+ getEvaluationStrategy(): GuessEvaluationStrategy" vertex="1">
+          <mxGeometry height="150" width="560" x="980" y="350" as="geometry" />
         </mxCell>
-
-        <!-- CORE CLASSES -->
-        <mxCell id="coreTitle" value="Core Game Classes" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="860" y="650" width="260" height="30" as="geometry"/>
+        <mxCell id="singletonTitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=18;" value="Singleton Pattern" vertex="1">
+          <mxGeometry height="40" width="460" x="2070" y="130" as="geometry" />
         </mxCell>
-
-        <mxCell id="main" value="Main&#xa;-------------------------&#xa;+ main(args: String[]): void" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1680" y="690" width="270" height="90" as="geometry"/>
+        <mxCell id="gameSettings" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#edf7f7;" value="GameSettings&#xa;-------------------------&#xa;- instance: GameSettings&#xa;- wordLength: int&#xa;- themeName: String&#xa;- debugMode: boolean&#xa;-------------------------&#xa;- GameSettings()&#xa;+ getInstance(): GameSettings&#xa;+ getWordLength(): int&#xa;+ getThemeName(): String&#xa;+ isDebugMode(): boolean" vertex="1">
+          <mxGeometry height="210" width="400" x="1910" y="195" as="geometry" />
         </mxCell>
-
-        <mxCell id="wordProvider" value="WordProvider&#xa;-------------------------&#xa;- words: List&lt;String&gt;&#xa;- random: Random&#xa;-------------------------&#xa;+ WordProvider()&#xa;+ getRandomWord(): String&#xa;+ isValidGuess(guess: String): boolean" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="80" y="720" width="340" height="160" as="geometry"/>
+        <mxCell id="adapterTitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=18;" value="Adapter Pattern" vertex="1">
+          <mxGeometry height="40" width="460" x="1980" y="450" as="geometry" />
         </mxCell>
-
-        <mxCell id="game" value="Game&#xa;-------------------------&#xa;- wordProvider: WordProvider&#xa;- guessEvaluator: GuessEvaluator&#xa;- gameConfig: GameConfig&#xa;- scanner: Scanner&#xa;- commandParser: CommandParser&#xa;- eventManager: GameEventManager&#xa;- scoreTracker: ScoreTracker&#xa;-------------------------&#xa;+ Game(wordProvider: WordProvider, guessEvaluator: GuessEvaluator, gameConfig: GameConfig, scanner: Scanner)&#xa;+ play(): void&#xa;- printIntro(): void" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="560" y="700" width="640" height="260" as="geometry"/>
+        <mxCell id="gameDisplay" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff3e0;" value="&lt;&lt;interface&gt;&gt;&#xa;GameDisplay&#xa;-------------------------&#xa;+ showMessage(message: String): void&#xa;+ showPrompt(prompt: String): void" vertex="1">
+          <mxGeometry height="100" width="330" x="1930" y="500" as="geometry" />
         </mxCell>
-
-        <!-- COMMAND PATTERN -->
-        <mxCell id="commandTitle" value="Command Pattern" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="120" y="990" width="240" height="30" as="geometry"/>
+        <mxCell id="terminalOutput" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff3e0;" value="TerminalOutput&#xa;-------------------------&#xa;+ printLine(message: String): void&#xa;+ printText(message: String): void" vertex="1">
+          <mxGeometry height="95" width="370" x="1890" y="680" as="geometry" />
         </mxCell>
-
-        <mxCell id="gameCommand" value="&lt;&lt;interface&gt;&gt;&#xa;GameCommand&#xa;-------------------------&#xa;+ execute(context: GameContext): CommandResult" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="420" y="1030" width="380" height="100" as="geometry"/>
+        <mxCell id="consoleDisplayAdapter" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff3e0;" value="ConsoleDisplayAdapter&#xa;-------------------------&#xa;- terminalOutput: TerminalOutput&#xa;-------------------------&#xa;+ ConsoleDisplayAdapter(terminalOutput: TerminalOutput)&#xa;+ showMessage(message: String): void&#xa;+ showPrompt(prompt: String): void" vertex="1">
+          <mxGeometry height="150" width="410" x="1870" y="840" as="geometry" />
         </mxCell>
-
-        <mxCell id="guessCommand" value="GuessCommand&#xa;-------------------------&#xa;- guess: String&#xa;-------------------------&#xa;+ GuessCommand(guess: String)&#xa;+ execute(context: GameContext): CommandResult" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="60" y="1180" width="350" height="140" as="geometry"/>
+        <mxCell id="coreTitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=18;" value="Core Game Classes" vertex="1">
+          <mxGeometry height="40" width="980" x="70" y="620" as="geometry" />
         </mxCell>
-
-        <mxCell id="helpCommand" value="HelpCommand&#xa;-------------------------&#xa;+ execute(context: GameContext): CommandResult" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="450" y="1180" width="300" height="95" as="geometry"/>
+        <mxCell id="main" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff8e1;" value="Main&#xa;-------------------------&#xa;+ main(args: String[]): void" vertex="1">
+          <mxGeometry height="75" width="230" x="1360" y="920" as="geometry" />
         </mxCell>
-
-        <mxCell id="quitCommand" value="QuitCommand&#xa;-------------------------&#xa;+ execute(context: GameContext): CommandResult" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="790" y="1180" width="300" height="95" as="geometry"/>
+        <mxCell id="wordProvider" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff8e1;" value="WordProvider&#xa;-------------------------&#xa;- words: List&lt;String&gt;&#xa;- random: Random&#xa;-------------------------&#xa;+ WordProvider()&#xa;+ getRandomWord(): String&#xa;+ isValidGuess(guess: String): boolean" vertex="1">
+          <mxGeometry height="135" width="330" x="657.5" y="645" as="geometry" />
         </mxCell>
-
-        <mxCell id="commandParser" value="CommandParser&#xa;-------------------------&#xa;+ parse(input: String): GameCommand" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="60" y="1030" width="300" height="90" as="geometry"/>
+        <mxCell id="game" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff8e1;" value="Game&#xa;-------------------------&#xa;- wordProvider: WordProvider&#xa;- guessEvaluator: GuessEvaluator&#xa;- gameConfig: GameConfig&#xa;- scanner: Scanner&#xa;- commandParser: CommandParser&#xa;- eventManager: GameEventManager&#xa;- scoreTracker: ScoreTracker&#xa;- display: GameDisplay&#xa;-------------------------&#xa;+ Game(wordProvider: WordProvider, guessEvaluator: GuessEvaluator, gameConfig: GameConfig, scanner: Scanner, display: GameDisplay)&#xa;+ play(): void&#xa;- printIntro(): void" vertex="1">
+          <mxGeometry height="300" width="260" x="692.5" y="870" as="geometry" />
         </mxCell>
-
-        <mxCell id="commandResult" value="CommandResult&#xa;-------------------------&#xa;- message: String&#xa;- countsAsGuess: boolean&#xa;- gameWon: boolean&#xa;- gameQuit: boolean&#xa;-------------------------&#xa;+ CommandResult(message: String, countsAsGuess: boolean, gameWon: boolean, gameQuit: boolean)&#xa;+ getMessage(): String&#xa;+ countsAsGuess(): boolean&#xa;+ isGameWon(): boolean&#xa;+ isGameQuit(): boolean" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1110" y="1030" width="600" height="240" as="geometry"/>
+        <mxCell id="commandTitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=18;" value="Command Pattern" vertex="1">
+          <mxGeometry height="40" width="1050" y="1295" as="geometry" />
         </mxCell>
-
-        <mxCell id="gameContext" value="GameContext&#xa;-------------------------&#xa;- wordProvider: WordProvider&#xa;- guessEvaluator: GuessEvaluator&#xa;- gameConfig: GameConfig&#xa;- secretWord: String&#xa;-------------------------&#xa;+ GameContext(wordProvider: WordProvider, guessEvaluator: GuessEvaluator, gameConfig: GameConfig, secretWord: String)&#xa;+ getWordProvider(): WordProvider&#xa;+ getGuessEvaluator(): GuessEvaluator&#xa;+ getGameConfig(): GameConfig&#xa;+ getSecretWord(): String" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="60" y="1370" width="620" height="240" as="geometry"/>
+        <mxCell id="commandParser" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5ebff;" value="CommandParser&#xa;-------------------------&#xa;+ parse(input: String): GameCommand" vertex="1">
+          <mxGeometry height="90" width="300" x="140" y="1000" as="geometry" />
         </mxCell>
-
-        <!-- OBSERVER PATTERN -->
-        <mxCell id="observerTitle" value="Observer Pattern" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=18;" vertex="1" parent="1">
-          <mxGeometry x="1320" y="650" width="250" height="30" as="geometry"/>
+        <mxCell id="gameCommand" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5ebff;" value="&lt;&lt;interface&gt;&gt;&#xa;GameCommand&#xa;-------------------------&#xa;+ execute(context: GameContext): CommandResult" vertex="1">
+          <mxGeometry height="100" width="390" x="200" y="1130" as="geometry" />
         </mxCell>
-
-        <mxCell id="gameEventListener" value="&lt;&lt;interface&gt;&gt;&#xa;GameEventListener&#xa;-------------------------&#xa;+ onGameEvent(eventType: String, message: String): void" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1320" y="720" width="430" height="100" as="geometry"/>
+        <mxCell id="guessCommand" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5ebff;" value="GuessCommand&#xa;-------------------------&#xa;- guess: String&#xa;-------------------------&#xa;+ GuessCommand(guess: String)&#xa;+ execute(context: GameContext): CommandResult" vertex="1">
+          <mxGeometry height="125" width="320" x="-130" y="1360" as="geometry" />
         </mxCell>
-
-        <mxCell id="gameEventManager" value="GameEventManager&#xa;-------------------------&#xa;- listeners: List&lt;GameEventListener&gt;&#xa;-------------------------&#xa;+ GameEventManager()&#xa;+ addListener(listener: GameEventListener): void&#xa;+ notifyListeners(eventType: String, message: String): void" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1280" y="880" width="500" height="160" as="geometry"/>
+        <mxCell id="helpCommand" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5ebff;" value="HelpCommand&#xa;-------------------------&#xa;+ execute(context: GameContext): CommandResult" vertex="1">
+          <mxGeometry height="85" width="280" x="340" y="1390" as="geometry" />
         </mxCell>
-
-        <mxCell id="scoreTracker" value="ScoreTracker&#xa;-------------------------&#xa;- guessesSubmitted: int&#xa;- invalidGuesses: int&#xa;- gamesWon: int&#xa;- gamesLost: int&#xa;-------------------------&#xa;+ onGameEvent(eventType: String, message: String): void&#xa;+ getSummary(): String" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1260" y="1100" width="390" height="190" as="geometry"/>
+        <mxCell id="quitCommand" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5ebff;" value="QuitCommand&#xa;-------------------------&#xa;+ execute(context: GameContext): CommandResult" vertex="1">
+          <mxGeometry height="105" width="305" x="647.5" y="1230" as="geometry" />
         </mxCell>
-
-        <mxCell id="consoleGameLogger" value="ConsoleGameLogger&#xa;-------------------------&#xa;+ onGameEvent(eventType: String, message: String): void" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1690" y="1100" width="350" height="95" as="geometry"/>
+        <mxCell id="commandResult" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5ebff;" value="CommandResult&#xa;-------------------------&#xa;- message: String&#xa;- countsAsGuess: boolean&#xa;- gameWon: boolean&#xa;- gameQuit: boolean&#xa;-------------------------&#xa;+ CommandResult(message: String, countsAsGuess: boolean, gameWon: boolean, gameQuit: boolean)&#xa;+ getMessage(): String&#xa;+ countsAsGuess(): boolean&#xa;+ isGameWon(): boolean&#xa;+ isGameQuit(): boolean" vertex="1">
+          <mxGeometry height="220" width="370" x="647.5" y="1390" as="geometry" />
         </mxCell>
-
-        <!-- ARROWS: STRATEGY -->
-        <mxCell id="militaryToStrategy" style="endArrow=block;endFill=0;dashed=1;html=1;" edge="1" parent="1" source="militaryEvaluationStrategy" target="guessEvaluationStrategy">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="gameContext" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5ebff;" value="GameContext&#xa;-------------------------&#xa;- wordProvider: WordProvider&#xa;- guessEvaluator: GuessEvaluator&#xa;- gameConfig: GameConfig&#xa;- secretWord: String&#xa;-------------------------&#xa;+ GameContext(wordProvider: WordProvider, guessEvaluator: GuessEvaluator, gameConfig: GameConfig, secretWord: String)&#xa;+ getWordProvider(): WordProvider&#xa;+ getGuessEvaluator(): GuessEvaluator&#xa;+ getGameConfig(): GameConfig&#xa;+ getSecretWord(): String" vertex="1">
+          <mxGeometry height="205" width="580" x="-100" y="1520" as="geometry" />
         </mxCell>
-
-        <mxCell id="classicToStrategy" style="endArrow=block;endFill=0;dashed=1;html=1;" edge="1" parent="1" source="classicEvaluationStrategy" target="guessEvaluationStrategy">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="observerTitle" parent="1" style="text;html=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=18;" value="Observer Pattern" vertex="1">
+          <mxGeometry height="40" width="620" x="1260" y="1180" as="geometry" />
         </mxCell>
-
-        <mxCell id="evaluatorUsesStrategy" value="uses" style="endArrow=open;html=1;" edge="1" parent="1" source="guessEvaluator" target="guessEvaluationStrategy">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="gameEventListener" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffebee;" value="&lt;&lt;interface&gt;&gt;&#xa;GameEventListener&#xa;-------------------------&#xa;+ onGameEvent(eventType: String, message: String): void" vertex="1">
+          <mxGeometry height="100" width="430" x="1530" y="1080" as="geometry" />
         </mxCell>
-
-        <!-- ARROWS: FACTORY METHOD -->
-        <mxCell id="trainingToCreator" style="endArrow=block;endFill=0;html=1;" edge="1" parent="1" source="trainingModeCreator" target="gameModeCreator">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="gameEventManager" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffebee;" value="GameEventManager&#xa;-------------------------&#xa;- listeners: List&lt;GameEventListener&gt;&#xa;-------------------------&#xa;+ addListener(listener: GameEventListener): void&#xa;+ notifyListeners(eventType: String, message: String): void" vertex="1">
+          <mxGeometry height="135" width="500" x="1090" y="1220" as="geometry" />
         </mxCell>
-
-        <mxCell id="hardToCreator" style="endArrow=block;endFill=0;html=1;" edge="1" parent="1" source="hardModeCreator" target="gameModeCreator">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="ebGibXDLTIDfmCTREeCN-1" edge="1" parent="1" source="scoreTracker" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1380" y="1690" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
-
-        <mxCell id="classicToCreator" style="endArrow=block;endFill=0;html=1;" edge="1" parent="1" source="classicModeCreator" target="gameModeCreator">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="scoreTracker" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffebee;" value="ScoreTracker&#xa;-------------------------&#xa;- guessesSubmitted: int&#xa;- invalidGuesses: int&#xa;- gamesWon: int&#xa;- gamesLost: int&#xa;-------------------------&#xa;+ onGameEvent(eventType: String, message: String): void&#xa;+ getSummary(): String" vertex="1">
+          <mxGeometry height="165" width="370" x="1200" y="1670" as="geometry" />
         </mxCell>
-
-        <mxCell id="creatorCreatesConfig" value="creates" style="endArrow=open;html=1;" edge="1" parent="1" source="gameModeCreator" target="gameConfig">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="consoleGameLogger" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffebee;" value="ConsoleGameLogger&#xa;-------------------------&#xa;+ onGameEvent(eventType: String, message: String): void" vertex="1">
+          <mxGeometry height="85" width="330" x="1660" y="1420" as="geometry" />
         </mxCell>
-
-        <mxCell id="selectorSelectsCreator" value="selects" style="endArrow=open;html=1;" edge="1" parent="1" source="gameModeSelector" target="gameModeCreator">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="legend" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" value="Legend&#xa;-------------------------&#xa;dashed hollow triangle = implements&#xa;solid hollow triangle = extends&#xa;open arrow = uses / has / creates / returns" vertex="1">
+          <mxGeometry height="180" width="370" x="1830" y="1950" as="geometry" />
         </mxCell>
-
-        <mxCell id="configHasStrategy" value="has" style="endArrow=open;html=1;" edge="1" parent="1" source="gameConfig" target="guessEvaluationStrategy">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="militaryToStrategy" edge="1" parent="1" source="militaryEvaluationStrategy" style="endArrow=block;endFill=0;dashed=1;html=1;" target="guessEvaluationStrategy" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- ARROWS: CORE -->
-        <mxCell id="mainUsesSelector" value="uses" style="endArrow=open;html=1;" edge="1" parent="1" source="main" target="gameModeSelector">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="classicToStrategy" edge="1" parent="1" source="classicEvaluationStrategy" style="endArrow=block;endFill=0;dashed=1;html=1;" target="guessEvaluationStrategy" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="mainCreatesGame" value="creates" style="endArrow=open;html=1;" edge="1" parent="1" source="main" target="game">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="evaluatorUsesStrategy" edge="1" parent="1" source="guessEvaluator" style="endArrow=open;html=1;" target="guessEvaluationStrategy" value="uses">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="gameHasWordProvider" value="has" style="endArrow=open;html=1;" edge="1" parent="1" source="game" target="wordProvider">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="trainingToCreator" edge="1" parent="1" source="trainingModeCreator" style="endArrow=block;endFill=0;html=1;" target="gameModeCreator" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="gameHasEvaluator" value="has" style="endArrow=open;html=1;" edge="1" parent="1" source="game" target="guessEvaluator">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="hardToCreator" edge="1" parent="1" source="hardModeCreator" style="endArrow=block;endFill=0;html=1;" target="gameModeCreator" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="gameHasConfig" value="has" style="endArrow=open;html=1;" edge="1" parent="1" source="game" target="gameConfig">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="classicModeToCreator" edge="1" parent="1" source="classicModeCreator" style="endArrow=block;endFill=0;html=1;" target="gameModeCreator" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- ARROWS: COMMAND -->
-        <mxCell id="guessToCommand" style="endArrow=block;endFill=0;dashed=1;html=1;" edge="1" parent="1" source="guessCommand" target="gameCommand">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="selectorSelectsCreator" edge="1" parent="1" source="gameModeSelector" style="endArrow=open;html=1;" target="gameModeCreator" value="selects">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="helpToCommand" style="endArrow=block;endFill=0;dashed=1;html=1;" edge="1" parent="1" source="helpCommand" target="gameCommand">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="creatorCreatesConfig" edge="1" parent="1" source="gameModeCreator" style="endArrow=open;html=1;" target="gameConfig" value="creates">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="quitToCommand" style="endArrow=block;endFill=0;dashed=1;html=1;" edge="1" parent="1" source="quitCommand" target="gameCommand">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="configHasStrategy" edge="1" parent="1" source="gameConfig" style="endArrow=open;html=1;" target="guessEvaluationStrategy" value="has">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="parserCreatesCommand" value="creates" style="endArrow=open;html=1;" edge="1" parent="1" source="commandParser" target="gameCommand">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="gameUsesSettings" edge="1" parent="1" source="game" style="endArrow=open;html=1;" target="gameSettings" value="uses">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="gameHasParser" value="has" style="endArrow=open;html=1;" edge="1" parent="1" source="game" target="commandParser">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="providerUsesSettings" edge="1" parent="1" source="wordProvider" style="endArrow=open;html=1;" target="gameSettings" value="uses">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="commandUsesContext" value="uses" style="endArrow=open;html=1;" edge="1" parent="1" source="gameCommand" target="gameContext">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="adapterImplementsDisplay" edge="1" parent="1" source="consoleDisplayAdapter" style="endArrow=block;endFill=0;dashed=1;html=1;" target="gameDisplay" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="commandReturnsResult" value="returns" style="endArrow=open;html=1;" edge="1" parent="1" source="gameCommand" target="commandResult">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="adapterHasTerminal" edge="1" parent="1" source="consoleDisplayAdapter" style="endArrow=open;html=1;" target="terminalOutput" value="has">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="contextHasProvider" value="has" style="endArrow=open;html=1;" edge="1" parent="1" source="gameContext" target="wordProvider">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="gameHasDisplay" edge="1" parent="1" source="game" style="endArrow=open;html=1;" target="gameDisplay" value="has">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="contextHasEvaluator" value="has" style="endArrow=open;html=1;" edge="1" parent="1" source="gameContext" target="guessEvaluator">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="mainCreatesAdapter" edge="1" parent="1" source="main" style="endArrow=open;html=1;" target="consoleDisplayAdapter" value="creates">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="contextHasConfig" value="has" style="endArrow=open;html=1;" edge="1" parent="1" source="gameContext" target="gameConfig">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="gameHasProvider" edge="1" parent="1" source="game" style="endArrow=open;html=1;" target="wordProvider" value="has">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- ARROWS: OBSERVER -->
-        <mxCell id="scoreToListener" style="endArrow=block;endFill=0;dashed=1;html=1;" edge="1" parent="1" source="scoreTracker" target="gameEventListener">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="gameHasEvaluator" edge="1" parent="1" source="game" style="endArrow=open;html=1;" target="guessEvaluator" value="has">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="loggerToListener" style="endArrow=block;endFill=0;dashed=1;html=1;" edge="1" parent="1" source="consoleGameLogger" target="gameEventListener">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="gameHasConfig" edge="1" parent="1" source="game" style="endArrow=open;html=1;" target="gameConfig" value="has">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="managerNotifiesListener" value="notifies" style="endArrow=open;html=1;" edge="1" parent="1" source="gameEventManager" target="gameEventListener">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="mainCreatesGame" edge="1" parent="1" source="main" style="endArrow=open;html=1;" target="game" value="creates">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="gameHasEventManager" value="has" style="endArrow=open;html=1;" edge="1" parent="1" source="game" target="gameEventManager">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="mainUsesSelector" edge="1" parent="1" source="main" style="endArrow=open;html=1;" target="gameModeSelector" value="uses">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="gameHasScoreTracker" value="has" style="endArrow=open;html=1;" edge="1" parent="1" source="game" target="scoreTracker">
-          <mxGeometry relative="1" as="geometry"/>
+        <mxCell id="parserCreatesCommand" edge="1" parent="1" source="commandParser" style="endArrow=open;html=1;" target="gameCommand" value="creates">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
+        <mxCell id="gameHasParser" edge="1" parent="1" source="game" style="endArrow=open;html=1;" target="commandParser" value="has">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="guessImplementsCommand" edge="1" parent="1" source="guessCommand" style="endArrow=block;endFill=0;dashed=1;html=1;" target="gameCommand" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="helpImplementsCommand" edge="1" parent="1" source="helpCommand" style="endArrow=block;endFill=0;dashed=1;html=1;" target="gameCommand" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="quitImplementsCommand" edge="1" parent="1" source="quitCommand" style="endArrow=block;endFill=0;dashed=1;html=1;" target="gameCommand" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="commandUsesContext" edge="1" parent="1" source="gameCommand" style="endArrow=open;html=1;" target="gameContext" value="uses">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="commandReturnsResult" edge="1" parent="1" source="gameCommand" style="endArrow=open;html=1;" target="commandResult" value="returns">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="managerNotifiesListener" edge="1" parent="1" source="gameEventManager" style="endArrow=open;html=1;" target="gameEventListener" value="notifies">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="scoreImplementsListener" edge="1" parent="1" source="scoreTracker" style="endArrow=block;endFill=0;dashed=1;html=1;" target="gameEventListener" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="loggerImplementsListener" edge="1" parent="1" source="consoleGameLogger" style="endArrow=block;endFill=0;dashed=1;html=1;" target="gameEventListener" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gameHasEventManager" edge="1" parent="1" source="game" style="endArrow=open;html=1;" target="gameEventManager" value="has">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gameHasScoreTracker" edge="1" parent="1" source="game" style="endArrow=open;html=1;" target="scoreTracker" value="has">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ebGibXDLTIDfmCTREeCN-2" edge="1" parent="1" source="trainingModeCreator" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="trainingModeCreator">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
