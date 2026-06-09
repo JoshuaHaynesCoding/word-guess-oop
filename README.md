@@ -204,3 +204,29 @@ one risk is making sure the singleton and adapter patterns are actually used by 
 another risk is that adding a gui could take more time than expected. because of that, i want to keep the terminal version working as a backup while building the gui separately. i am aimint to be done with this totally by 06/06 in case I run into any hiccups.
 
 another issue is that i am still not great at using the uml website. the current uml diagram includes the required classes and patterns, but it is not as clean visually as i want it to be. for the final commit, i plan to make a proper polished uml diagram that is easier to read, possibly color coordinated and maybe made with a different tool.
+
+## final submission notes
+
+word ops is now a fully playable five letter word guessing game with a classified military terminal themed gui. the player can choose a mission mode, enter guesses, receive colored feedback, use the intel/help command, reset the mission, or abort the mission.
+
+i also finally got a decent looking uml.
+
+the final version uses six custom design patterns:
+
+1. strategy pattern
+2. factory method pattern
+3. command pattern
+4. observer pattern
+5. singleton pattern
+6. adapter pattern
+
+the project can be compiled and run with:
+
+
+java -cp src/main Main (terminal version) or
+
+
+```bash
+javac src/main/*.java
+java -cp src/main WordOpsGui
+
