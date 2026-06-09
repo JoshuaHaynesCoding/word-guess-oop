@@ -8,11 +8,11 @@ public class ClassicEvaluationStrategy implements GuessEvaluationStrategy {
             char secretLetter = secretWord.charAt(i);
 
             if (guessLetter == secretLetter) {
-                feedback.append("[GREEN ").append(guessLetter).append("] ");
+                feedback.append("[HIT ").append(guessLetter).append("] ");
             } else if (secretWord.indexOf(guessLetter) >= 0) {
-                feedback.append("[YELLOW ").append(guessLetter).append("] ");
+                feedback.append("[PING ").append(guessLetter).append("] ");
             } else {
-                feedback.append("[GRAY ").append(guessLetter).append("] ");
+                feedback.append("[MISS ").append(guessLetter).append("] ");
             }
         }
 
@@ -22,9 +22,9 @@ public class ClassicEvaluationStrategy implements GuessEvaluationStrategy {
     @Override
     public String getInstructions() {
         return """
-                GREEN = correct letter and position
-                YELLOW = correct letter, wrong position
-                GRAY = letter not in word
+                HIT = correct letter and position
+                PING = correct letter, wrong position
+                MISS = letter not in phrase
                 """;
     }
 }

@@ -6,7 +6,7 @@ public class GameSettings {
     private final boolean debugMode;
 
     private GameSettings() {
-        this.wordLength = 4;
+        this.wordLength = 5;
         this.themeName = "Military Intelligence";
         this.debugMode = false;
     }
