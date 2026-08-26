@@ -161,15 +161,16 @@ public class WordOpsGui extends JFrame {
     }
 
     private void startNewGame() {
-        String selectedMode = modeBox.getSelectedItem().toString();
+        String selectedModeLabel = modeBox.getSelectedItem().toString();
+        String selectedMode = selectedModeLabel;
 
-if (selectedMode.equals("Boot Camp")) {
-    selectedMode = "training";
-} else if (selectedMode.equals("Standard Mission")) {
-    selectedMode = "classic";
-} else if (selectedMode.equals("Clandestine Op")) {
-    selectedMode = "hard";
-}
+        if (selectedMode.equals("Boot Camp")) {
+            selectedMode = "training";
+        } else if (selectedMode.equals("Standard Mission")) {
+            selectedMode = "classic";
+        } else if (selectedMode.equals("Clandestine Op")) {
+            selectedMode = "hard";
+        }
 
         GameModeCreator gameModeCreator = GameModeSelector.selectCreator(selectedMode);
         gameConfig = gameModeCreator.createGameConfig();
@@ -206,7 +207,7 @@ display.showMessage("PASSWORD: ********");
 display.showMessage("ACCESS LEVEL: RESTRICTED");
 display.showMessage("");
 display.showMessage("SYSTEM: MILITARY INTELLIGENCE WORD DATABASE");
-display.showMessage("MODE: " + gameConfig.getModeName().toUpperCase());
+display.showMessage("MODE: " + selectedModeLabel.toUpperCase());
 display.showMessage("THEME: " + GameSettings.getInstance().getThemeName().toUpperCase());
 display.showMessage("");
 display.showMessage("MISSION BRIEF:");

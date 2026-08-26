@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -6,7 +7,7 @@ public class WordProvider {
     private final Random random;
 
     public WordProvider() {
-        this.words = List.of(
+        this.words = Arrays.asList(
     "alpha", "pilot", "armor", "eagle", "blade",
     "beret", "delta", "drone", "flank", "force",
     "ghost", "havoc", "intel", "knife", "laser",
