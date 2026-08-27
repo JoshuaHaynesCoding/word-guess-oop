@@ -3,8 +3,8 @@ public class CommandParser {
         String cleanedInput = input.trim().toLowerCase();
 
         return switch (cleanedInput) {
-            case "help" -> new HelpCommand();
-            case "quit", "exit" -> new QuitCommand();
+            case "intel", "help" -> new HelpCommand();
+            case "abort", "quit", "exit" -> new QuitCommand();
             default -> new GuessCommand(cleanedInput);
         };
     }

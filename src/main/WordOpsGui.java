@@ -152,8 +152,8 @@ public class WordOpsGui extends JFrame {
         root.add(bottomPanel, BorderLayout.SOUTH);
 
         submitButton.addActionListener(e -> submitInput());
-        helpButton.addActionListener(e -> runCommand("help"));
-        quitButton.addActionListener(e -> runCommand("quit"));
+        helpButton.addActionListener(e -> runCommand("intel"));
+        quitButton.addActionListener(e -> runCommand("abort"));
         restartButton.addActionListener(e -> startNewGame());
 
         guessField.addActionListener(e -> submitInput());
@@ -217,7 +217,7 @@ display.showMessage("TRIES AUTHORIZED: " + gameConfig.getMaxGuesses());
 display.showMessage("");
 display.showMessage(gameConfig.getEvaluationStrategy().getInstructions());
 display.showMessage("");
-display.showMessage("COMMANDS: help | quit | restart");
+display.showMessage("COMMANDS: INTEL | ABORT | RESET");
 display.showMessage("AWAITING INPUT...");
 display.showMessage("");
 
@@ -237,21 +237,29 @@ display.showMessage("");
     }
 
     private void runCommand(String input) {
+        String cleanedInput = input.trim();
+
+        if (cleanedInput.equalsIgnoreCase("reset") || cleanedInput.equalsIgnoreCase("restart")) {
+            startNewGame();
+            return;
+        }
+
         if (hasWon || hasQuit) {
             return;
         }
 
-        GameCommand command = commandParser.parse(input);
+        GameCommand command = commandParser.parse(cleanedInput);
         CommandResult result = command.execute(context);
 
-        display.showMessage("> " + input);
+        display.showMessage("> " + cleanedInput);
         display.showMessage(result.getMessage());
         display.showMessage("");
 
         if (result.countsAsGuess()) {
             guessesUsed++;
             eventManager.notifyListeners("GUESS_SUBMITTED", "Player submitted a valid guess.");
-        } else if (!result.isGameQuit() && !input.trim().equalsIgnoreCase("help")) {
+        } else if (!result.isGameQuit() && !cleanedInput.equalsIgnoreCase("intel")
+            && !cleanedInput.equalsIgnoreCase("help")) {
             eventManager.notifyListeners("INVALID_GUESS", "Player submitted an invalid guess.");
         }
 
